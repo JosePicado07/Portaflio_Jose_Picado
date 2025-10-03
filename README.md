@@ -27,7 +27,7 @@
     </style>
 </head>
 <body>
-    <img src="logo.png" alt="José Picado Logo" class="logo">
+    <img src="logo.jpg" alt="José Picado Logo" class="logo">
     <p class="slogan">"Precision in Process, Power in Performance"</p>
 </body>
 </html>
