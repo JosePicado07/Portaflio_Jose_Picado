@@ -30,6 +30,8 @@ Portaflio_Jose_Picado/
 ├── logo.jpg            # Logo personal
 ├── README.md           # Este archivo
 └── Tarea_1_Portafolio.pdf  # Documentación del proyecto
+└── Tarea_2_Portafolio.pdf  # Documentación del proyecto
+
 ```
 
 ## Enlaces
