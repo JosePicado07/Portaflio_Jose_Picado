@@ -1,4 +1,3 @@
-```markdown
 # José Picado - Portfolio Profesional
 
 Portfolio web profesional de José Picado, Data Engineer & Automation Specialist.
@@ -48,5 +47,3 @@ Portaflio_Jose_Picado/
 
 *Product Data Analyst @ WWT | Transforming operational complexity into scalable data solutions*
 ```
-
-Ahora sí está correcto.
