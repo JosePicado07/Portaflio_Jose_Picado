@@ -1,9 +1,3 @@
-Tienes toda la razón. El logo es **solo azul** (#203c86), no tiene verde. 
-
-Me confundí porque en el documento hablas del verde (#33af7f) como color de acento para el portafolio completo (botones, highlights), pero el **logo en sí solo usa azul**.
-
-README corregido:
-
 ```markdown
 # José Picado - Portfolio Profesional
 
