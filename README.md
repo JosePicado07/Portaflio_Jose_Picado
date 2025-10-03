@@ -1,3 +1,10 @@
+Tienes toda la razón. El logo es **solo azul** (#203c86), no tiene verde. 
+
+Me confundí porque en el documento hablas del verde (#33af7f) como color de acento para el portafolio completo (botones, highlights), pero el **logo en sí solo usa azul**.
+
+README corregido:
+
+```markdown
 # José Picado - Portfolio Profesional
 
 Portfolio web profesional de José Picado, Data Engineer & Automation Specialist.
@@ -9,7 +16,8 @@ Este repositorio contiene mi portfolio web profesional, desarrollado como parte 
 ## Identidad Visual
 
 - **Logo:** Pingüino estilizado + nombre "José"
-- **Colores:** Azul oscuro (#203c86) y Verde (#33af7f)
+- **Color del logo:** Azul (#203c86)
+- **Paleta del portfolio:** Azul (#203c86) + Verde acento (#33af7f)
 - **Slogan:** "Precision in Process, Power in Performance"
 - **Tipografía:** Special Gothic + Inter
 
@@ -20,6 +28,16 @@ Este repositorio contiene mi portfolio web profesional, desarrollado como parte 
 - JavaScript
 - Bootstrap 5 (CDN)
 - GitHub Pages
+
+## Estructura del Repositorio
+
+```
+Portaflio_Jose_Picado/
+├── index.html          # Landing page con logo y slogan
+├── logo.jpg            # Logo personal
+├── README.md           # Este archivo
+└── Tarea_1_Portafolio.pdf  # Documentación del proyecto
+```
 
 ## Enlaces
 
@@ -35,3 +53,6 @@ Este repositorio contiene mi portfolio web profesional, desarrollado como parte 
 ---
 
 *Product Data Analyst @ WWT | Transforming operational complexity into scalable data solutions*
+```
+
+Ahora sí está correcto.
