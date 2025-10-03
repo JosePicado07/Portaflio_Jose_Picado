@@ -1,33 +1,37 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>José Picado - Data Engineer</title>
-    <style>
-        body {
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f9fbfc;
-            font-family: Arial, sans-serif;
-        }
-        .logo {
-            width: 300px;
-            margin-bottom: 30px;
-        }
-        .slogan {
-            font-size: 24px;
-            color: #203c86;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-    <img src="logo.jpg" alt="José Picado Logo" class="logo">
-    <p class="slogan">"Precision in Process, Power in Performance"</p>
-</body>
-</html>
+# José Picado - Portfolio Profesional
+
+Portfolio web profesional de José Picado, Data Engineer & Automation Specialist.
+
+## Sobre el Proyecto
+
+Este repositorio contiene mi portfolio web profesional, desarrollado como parte del curso de Portafolio Pro en Universidad Cenfotec.
+
+## Identidad Visual
+
+- **Logo:** Pingüino estilizado + nombre "José"
+- **Colores:** Azul oscuro (#203c86) y Verde (#33af7f)
+- **Slogan:** "Precision in Process, Power in Performance"
+- **Tipografía:** Special Gothic + Inter
+
+## Stack Técnico
+
+- HTML5
+- CSS3
+- JavaScript
+- Bootstrap 5 (CDN)
+- GitHub Pages
+
+## Enlaces
+
+- **Portfolio:** https://josepicado07.github.io/Portaflio_Jose_Picado/
+- **LinkedIn:** https://www.linkedin.com/in/josé-andrés-picado-corrales-a10a28173
+- **GitHub:** https://github.com/josepicado07
+
+## Contacto
+
+- **Email:** jpicado011@gmail.com
+- **WhatsApp:** +506 8475-6191
+
+---
+
+*Product Data Analyst @ WWT | Transforming operational complexity into scalable data solutions*
