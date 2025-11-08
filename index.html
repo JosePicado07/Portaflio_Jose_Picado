@@ -3,100 +3,660 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>José Picado - Data Engineer & Automation Specialist</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <meta name="description" content="José Picado - Data Engineer especializado en pipelines ETL, optimización de procesos y arquitectura de datos escalable">
+    <meta name="keywords" content="Data Engineer, ETL, Python, SQL, Apache Spark, Data Engineering, Costa Rica">
+    <meta name="author" content="José Andrés Picado Corrales">
 
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #f9fbfc 0%, #e8f0f5 100%);
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            padding: 20px;
-        }
+    <title>José Picado | Data Engineer</title>
 
-        .container {
-            text-align: center;
-            max-width: 600px;
-            background: white;
-            padding: 60px 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(32, 60, 134, 0.1);
-        }
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 
-        .logo {
-            width: 280px;
-            max-width: 100%;
-            margin-bottom: 40px;
-        }
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-        .slogan {
-            font-size: 28px;
-            font-weight: 600;
-            color: #203c86;
-            margin-bottom: 20px;
-            line-height: 1.4;
-        }
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        .subtitle {
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 30px;
-        }
+    <!-- AOS Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-        .badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #203c86 0%, #4b77bb 100%);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 14px;
-            font-weight: 500;
-        }
+    <!-- Swiper.js - Modern Touch Slider -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
-        .coming-soon {
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 2px solid #f0f0f0;
-            color: #999;
-            font-size: 14px;
-        }
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Exo+2:wght@700&display=swap" rel="stylesheet">
 
-        @media (max-width: 600px) {
-            .container {
-                padding: 40px 20px;
-            }
-            
-            .slogan {
-                font-size: 22px;
-            }
-            
-            .logo {
-                width: 220px;
-            }
-        }
-    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/swiper-custom.css">
 </head>
 <body>
-    <div class="container">
-        <img src="logo.jpg" alt="José Picado - Data Engineer" class="logo">
-        
-        <h1 class="slogan">"Precision in Process,<br>Power in Performance"</h1>
-        
-        <p class="subtitle">Data Engineer & Automation Specialist</p>
-        
-        <div class="badge">Portfolio en desarrollo</div>
-        
-        <div class="coming-soon">
-            Sitio completo próximamente
+
+    <!-- ========== HEADER / NAVIGATION ========== -->
+    <header id="header" class="header-navbar">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <!-- Logo -->
+                <a class="navbar-brand" href="#hero">
+                    <img src="images/logo.jpg" alt="José Picado Logo" class="logo-icon">
+                    <span class="logo-text">José Picado</span>
+                </a>
+
+                <!-- Mobile Toggle Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navigation Menu -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about" data-translate="nav-about">Sobre Mí</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#projects" data-translate="nav-projects">Proyectos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#skills" data-translate="nav-skills">Skills</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact" data-translate="nav-contact">Contacto</a>
+                        </li>
+                    </ul>
+
+                    <!-- Dark Mode Toggle -->
+                    <div class="theme-switcher">
+                        <button id="themeToggle" class="btn-theme" onclick="toggleTheme()" aria-label="Toggle theme">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+
+                    <!-- Language Switcher -->
+                    <div class="language-switcher">
+                        <button id="langBtn" class="btn-language" onclick="switchLanguage()">
+                            <span id="currentLang">ES</span> | <span id="otherLang">EN</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ========== SECTION 1: HERO ========== -->
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Hero Content -->
+                <div class="col-lg-7 col-md-6 hero-content" data-aos="fade-right">
+                    <div class="hero-tag" data-translate="hero-title">Data Engineer</div>
+                    <h1 class="hero-heading">José Andrés Picado</h1>
+                    <p class="hero-tagline" data-translate="hero-tagline">
+                        Transformando procesos de 6 horas en 45 minutos mediante automatización inteligente y arquitectura escalable
+                    </p>
+
+                    <!-- Stats -->
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">92%</div>
+                            <div class="stat-label" data-translate="hero-stat1">Reducción latencia</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">500K+</div>
+                            <div class="stat-label" data-translate="hero-stat2">Registros procesados</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">2+</div>
+                            <div class="stat-label" data-translate="hero-stat3">Años experiencia</div>
+                        </div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="hero-ctas">
+                        <a href="#projects" class="btn-cta btn-primary-modern">
+                            <span data-translate="hero-cta">Ver Proyectos</span>
+                            <svg class="btn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+                                <path d="M10 14l-4-4m4 4l4-4m-4 4V6" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/josepicado07" target="_blank" class="btn-cta btn-secondary-modern">
+                            <i class="fab fa-github btn-icon"></i>
+                            <span data-translate="hero-github">GitHub</span>
+                        </a>
+                        <a href="assets/CV_Jose_Picado_2025.pdf" download class="btn-cta btn-secondary-modern">
+                            <svg class="btn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+                                <path d="M10 3v12m0 0l-4-4m4 4l4-4" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M3 17h14" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span data-translate="hero-downloadCV">Descargar CV</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="col-lg-5 col-md-6 hero-image" data-aos="fade-left">
+                    <div class="image-wrapper">
+                        <img src="images/logo.jpg" alt="José Picado - Data Engineer" class="profile-image">
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+
+        <!-- Slogan Overlay -->
+        <div class="hero-slogan">
+            <p data-translate="hero-slogan">Precision in Process, Power in Performance</p>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 2: ABOUT ========== -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title" data-translate="about-title">Sobre Mí</h2>
+                <div class="title-underline"></div>
+            </div>
+
+            <div class="row">
+                <!-- About Content -->
+                <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
+                    <div class="about-content">
+                        <p class="about-text" data-translate="about-p1">
+                            Data Engineer con experiencia construyendo pipelines ETL y sistemas de datos en producción.
+                            Especializado en optimización de procesamiento a gran escala: reduje sistema de auditoría
+                            empresarial de 6 horas a 45 minutos (92% mejora) procesando 500K+ registros.
+                        </p>
+
+                        <p class="about-text" data-translate="about-p2">
+                            Mi background combina análisis de datos, integración de APIs y diseño de arquitectura escalable.
+                            En WWT Costa Rica, desarrollo aplicaciones Python en producción, frameworks de calidad de datos
+                            y pipelines automatizados que procesan 350+ flujos de datos concurrentes.
+                        </p>
+
+                        <p class="about-text" data-translate="about-p3">
+                            Actualmente cursando Ingeniería en Desarrollo de Software en Universidad Cenfotec (60% completado),
+                            aplicando aprendizaje continuo para dominar Apache Spark, patrones DDD y arquitectura cloud.
+                        </p>
+
+                        <!-- Tech Stack Badges -->
+                        <div class="tech-stack">
+                            <div class="tech-badge">
+                                <img src="https://cdn.simpleicons.org/python/3776AB" alt="Python">
+                                <span>Python</span>
+                            </div>
+                            <div class="tech-badge">
+                                <img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="SQL">
+                                <span>SQL</span>
+                            </div>
+                            <div class="tech-badge">
+                                <img src="https://cdn.simpleicons.org/apachespark/E25A1C" alt="Spark">
+                                <span>Spark</span>
+                            </div>
+                            <div class="tech-badge">
+                                <img src="https://cdn.simpleicons.org/pandas/white/150458" alt="Pandas" class="pandas-logo">
+                                <span>Pandas</span>
+                            </div>
+                            <div class="tech-badge">
+                                <img src="https://cdn.simpleicons.org/Databricks/FF3621" alt="Databricks">
+                                <span>Databricks</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About Cards -->
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="about-cards">
+                        <div class="metric-card">
+                            <i class="fas fa-rocket card-icon"></i>
+                            <div class="metric-value">92%</div>
+                            <div class="metric-label" data-translate="about-card1">Performance</div>
+                        </div>
+
+                        <div class="metric-card">
+                            <i class="fas fa-database card-icon"></i>
+                            <div class="metric-value">500K+</div>
+                            <div class="metric-label" data-translate="about-card2">Scale</div>
+                        </div>
+
+                        <div class="metric-card">
+                            <i class="fas fa-check-circle card-icon"></i>
+                            <div class="metric-value">95%</div>
+                            <div class="metric-label" data-translate="about-card3">Quality</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 3: PROJECTS SWIPER CAROUSEL ========== -->
+    <section id="projects" class="projects-section">
+        <div class="container-fluid">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title" data-translate="projects-title">Proyectos</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle" data-translate="projects-subtitle">Soluciones de datos que transforman negocios</p>
+            </div>
+
+            <!-- Swiper Projects Carousel -->
+            <div class="swiper projectsSwiper" data-aos="fade-up" data-aos-delay="200">
+                <div class="swiper-wrapper">
+
+                    <!-- Project 1: Enterprise Audit System -->
+                    <div class="swiper-slide">
+                        <div class="project-slide-card">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="project-image-wrapper">
+                                        <div class="project-number-badge">01</div>
+                                        <img src="images/audit.png"
+                                             alt="Enterprise Audit System"
+                                             class="project-image-swiper">
+                                        <div class="project-image-overlay"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="project-content-wrapper">
+                                        <span class="project-status-badge" data-translate="project1-status">
+                                            <i class="fas fa-check-circle"></i> Producción (2024)
+                                        </span>
+                                        <h3 class="project-title-swiper" data-translate="project1-title">
+                                            Sistema de Auditoría Empresarial
+                                        </h3>
+                                        <p class="project-description-swiper" data-translate="project1-desc">
+                                            Automatización de procesamiento de compliance auditando 500K+ registros con reducción
+                                            del 92% en latencia (6 horas → 45 minutos). Implementé framework de validación de
+                                            calidad de datos con detección automática de anomalías.
+                                        </p>
+
+                                        <div class="project-tech-stack">
+                                            <span class="tech-badge-swiper">Python</span>
+                                            <span class="tech-badge-swiper">Polars</span>
+                                            <span class="tech-badge-swiper">Pandas</span>
+                                            <span class="tech-badge-swiper">Data Quality</span>
+                                        </div>
+
+                                        <div class="project-metrics-grid">
+                                            <div class="metric-box">
+                                                <div class="metric-value-lg" data-translate="project1-value1">92%</div>
+                                                <div class="metric-label-sm" data-translate="project1-impact1">Reducción tiempo</div>
+                                            </div>
+                                            <div class="metric-box">
+                                                <div class="metric-value-lg" data-translate="project1-value2">95%</div>
+                                                <div class="metric-label-sm" data-translate="project1-impact2">Reducción revisión manual</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: ETL Pipeline -->
+                    <div class="swiper-slide">
+                        <div class="project-slide-card">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="project-image-wrapper">
+                                        <div class="project-number-badge">02</div>
+                                        <img src="images/sharepoint.png"
+                                             alt="SharePoint ETL Pipeline"
+                                             class="project-image-swiper">
+                                        <div class="project-image-overlay"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="project-content-wrapper">
+                                        <span class="project-status-badge" data-translate="project2-status">
+                                            <i class="fas fa-check-circle"></i> Producción (2024)
+                                        </span>
+                                        <h3 class="project-title-swiper" data-translate="project2-title">
+                                            Pipeline ETL SharePoint-to-Power BI
+                                        </h3>
+                                        <p class="project-description-swiper" data-translate="project2-desc">
+                                            Pipeline de datos incremental end-to-end con autenticación OAuth 2.0, logrando 80%
+                                            reducción en tiempo de procesamiento. Diseñado para scheduling diario confiable y
+                                            recuperación de errores.
+                                        </p>
+
+                                        <div class="project-tech-stack">
+                                            <span class="tech-badge-swiper">Python</span>
+                                            <span class="tech-badge-swiper">SharePoint API</span>
+                                            <span class="tech-badge-swiper">OAuth 2.0</span>
+                                            <span class="tech-badge-swiper">Power BI</span>
+                                        </div>
+
+                                        <div class="project-metrics-grid">
+                                            <div class="metric-box">
+                                                <div class="metric-value-lg" data-translate="project2-value1">80%</div>
+                                                <div class="metric-label-sm" data-translate="project2-impact1">Reducción procesamiento</div>
+                                            </div>
+                                            <div class="metric-box">
+                                                <div class="metric-value-lg" data-translate="project2-value2">350+</div>
+                                                <div class="metric-label-sm" data-translate="project2-impact2">Flujos concurrentes</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Data Normalization Tool -->
+                    <div class="swiper-slide">
+                        <div class="project-slide-card">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="project-image-wrapper">
+                                        <div class="project-number-badge">03</div>
+                                        <img src="images/truncation.png"
+                                             alt="Data Normalization Tool"
+                                             class="project-image-swiper">
+                                        <div class="project-image-overlay"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="project-content-wrapper">
+                                        <span class="project-status-badge" data-translate="project3-status">
+                                            <i class="fas fa-check-circle"></i> Producción (2024)
+                                        </span>
+                                        <h3 class="project-title-swiper" data-translate="project3-title">
+                                            Herramienta Inteligente de Normalización de Datos
+                                        </h3>
+                                        <p class="project-description-swiper" data-translate="project3-desc">
+                                            Aplicación desktop PyQt6 con algoritmo de fuzzy matching (85% precisión) para
+                                            normalización automatizada de datos. Reduce entrada manual de datos en 4 horas por semana.
+                                        </p>
+
+                                        <div class="project-tech-stack">
+                                            <span class="tech-badge-swiper">Python</span>
+                                            <span class="tech-badge-swiper">PyQt6</span>
+                                            <span class="tech-badge-swiper">Fuzzy Matching</span>
+                                            <span class="tech-badge-swiper">Desktop App</span>
+                                        </div>
+
+                                        <div class="project-metrics-grid">
+                                            <div class="metric-box">
+                                                <div class="metric-value-lg" data-translate="project3-value1">4h</div>
+                                                <div class="metric-label-sm" data-translate="project3-impact1">Horas ahorradas/sem</div>
+                                            </div>
+                                            <div class="metric-box">
+                                                <div class="metric-value-lg" data-translate="project3-value2">85%</div>
+                                                <div class="metric-label-sm" data-translate="project3-impact2">Precisión automatización</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: Databricks Medallion -->
+                    <div class="swiper-slide">
+                        <div class="project-slide-card">
+                            <div class="row g-0 align-items-center">
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="project-image-wrapper">
+                                        <div class="project-number-badge">04</div>
+                                        <img src="images/ETL_Databricks.png"
+                                             alt="Databricks Medallion Project"
+                                             class="project-image-swiper project-image-cover">
+                                        <div class="project-image-overlay"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="project-content-wrapper">
+                                        <span class="project-status-badge" data-translate="project4-status">
+                                            <i class="fas fa-check-circle"></i> Producción (2024)
+                                        </span>
+                                        <h3 class="project-title-swiper" data-translate="project4-title">
+                                            Proyecto de Medallion Architecture en Databricks
+                                        </h3>
+                                        <p class="project-description-swiper" data-translate="project4-desc">
+                                            Pipeline ETL end-to-end con arquitectura medallion (Bronze→Silver→Gold) procesando +100K transacciones. 
+                                            Implementa PySpark, Delta Lake y Great Expectations para calidad de datos, con dashboard Streamlit interactivo.
+                                        </p>
+
+                                        <div class="project-tech-stack">
+                                            <span class="tech-badge-swiper">PySpark</span>
+                                            <span class="tech-badge-swiper">SparkSQL</span>
+                                            <span class="tech-badge-swiper">Streamlit</span>
+                                            <span class="tech-badge-swiper">Databricks</span>
+                                        </div>
+
+                                        <div class="project-metrics-grid">
+                                            <div class="metric-box">
+                                                <div class="metric-value-lg" data-translate="project4-value1">100K+</div>
+                                                <div class="metric-label-sm" data-translate="project4-impact1">Transacciones procesadas</div>
+                                            </div>
+                                            <div class="metric-box">
+                                                <div class="metric-value-lg" data-translate="project4-value2">3 capas</div>
+                                                <div class="metric-label-sm" data-translate="project4-impact2">Arquitectura Medallion</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Swiper Navigation -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+
+                <!-- Swiper Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 4: SKILLS ========== -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title" data-translate="skills-title">Skills</h2>
+                <div class="title-underline"></div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Skills Category 1: Languages -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="skill-category" data-translate="skills-cat1">Languages</h3>
+                        <ul class="skill-list">
+                            <li>Python 3.8+</li>
+                            <li>SQL / PL-SQL</li>
+                            <li>Java</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Skills Category 2: Data Engineering -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3 class="skill-category" data-translate="skills-cat2">Data Engineering</h3>
+                        <ul class="skill-list">
+                            <li>ETL Pipelines</li>
+                            <li>Apache Spark</li>
+                            <li>Pandas / Polars / Duckdb </li>
+                            <li>Data Quality</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Skills Category 3: Architecture -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3 class="skill-category" data-translate="skills-cat3">Architecture</h3>
+                        <ul class="skill-list">
+                            <li>DDD Patterns</li>
+                            <li>System Design</li>
+                            <li>API Integration</li>
+                            <li>Scalability</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Skills Category 4: Cloud & Tools -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3 class="skill-category" data-translate="skills-cat4">Cloud & Tools</h3>
+                        <ul class="skill-list">
+                            <li>AWS Lambda</li>
+                            <li>Git / GitHub</li>
+                            <li>OAuth 2.0</li>
+                            <li>Monitoring</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 5: CONTACT ========== -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title" data-translate="contact-title">Contacto</h2>
+                <div class="title-underline"></div>
+            </div>
+
+            <div class="row">
+                <!-- Contact Info -->
+                <div class="col-lg-5 col-md-12" data-aos="fade-right">
+                    <div class="contact-info">
+                        <h3 class="contact-heading" data-translate="contact-heading">¿Hablamos de tu próximo proyecto de datos?</h3>
+
+                        <p class="availability-text" data-translate="contact-available-text">
+                            Consultoría Data Engineering • Automatización • Arquitectura ETL • Optimización
+                        </p>
+
+                        <div class="contact-links">
+                            <a href="mailto:jpicado011@gmail.com" class="contact-link">
+                                <i class="fas fa-envelope"></i>
+                                <span>jpicado011@gmail.com</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/josé-andrés-picado-corrales-a10a28173" target="_blank" class="contact-link">
+                                <i class="fab fa-linkedin"></i>
+                                <span>LinkedIn Profile</span>
+                            </a>
+                            <a href="https://github.com/josepicado07" target="_blank" class="contact-link">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub Portfolio</span>
+                            </a>
+                            <a href="https://wa.me/50684756191" target="_blank" class="contact-link">
+                                <i class="fab fa-whatsapp"></i>
+                                <span>+506 8475-6191</span>
+                            </a>
+                        </div>
+
+                        <a href="assets/CV_Jose_Picado_2025.pdf" download class="btn-download-cv" data-translate="contact-cv">
+                            <i class="fas fa-download"></i> Descargar CV
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="col-lg-7 col-md-12" data-aos="fade-left">
+                    <div class="contact-form-wrapper">
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <label for="name" data-translate="form-name">Nombre</label>
+                                <input type="text" id="name" name="name" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" data-translate="form-email">Email</label>
+                                <input type="email" id="email" name="email" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message" data-translate="form-message">Mensaje</label>
+                                <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn-submit" data-translate="form-submit">Enviar</button>
+
+                            <!-- Lottie Loading Animation -->
+                            <div id="lottieLoader" style="display: none; width: 120px; height: 120px; margin: 20px auto;"></div>
+
+                            <div id="formStatus" class="form-status"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-copyright">
+                    &copy; 2025 José Picado. <span data-translate="footer-rights">Todos los derechos reservados</span>.
+                </p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/josé-andrés-picado-corrales-a10a28173" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/josepicado07" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:jpicado011@gmail.com" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== FLOATING BUTTONS ========== -->
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/50684756191" target="_blank" class="btn-floating btn-whatsapp" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" class="btn-floating btn-scroll-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- ========== SCRIPTS ========== -->
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Swiper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- GSAP Animation Library (Premium animations) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <!-- Lottie Player -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="js/language.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
