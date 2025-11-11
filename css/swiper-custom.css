@@ -114,6 +114,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    pointer-events: none; /* Fix: Allow hover events to pass through to image */
+}
+
+/* Re-enable pointer events for interactive elements */
+.project-content-wrapper > * {
+    pointer-events: auto;
 }
 
 /* ========== PROJECT STATUS BADGE ========== */
@@ -311,7 +317,9 @@
     }
 
     .project-image-wrapper {
-        min-height: 300px;
+        height: clamp(250px, 40vh, 350px); /* Responsive height based on viewport */
+        max-height: 350px;
+        min-height: unset;
     }
 
     .project-content-wrapper {
@@ -326,6 +334,7 @@
     .project-description-swiper {
         font-size: 0.95rem;
         margin-bottom: 1.5rem;
+        line-height: 1.6; /* Tighter line-height for mobile */
     }
 
     .project-tech-stack {
@@ -347,6 +356,10 @@
         font-size: 2rem;
     }
 
+    .metric-box {
+        padding: 1rem; /* Reduced padding for mobile */
+    }
+
     .project-number-badge {
         width: 50px;
         height: 50px;
@@ -364,6 +377,27 @@
     .swiper-button-next:after,
     .swiper-button-prev:after {
         font-size: 1.2rem;
+    }
+}
+
+/* Extra small mobile (iPhone SE, Samsung Galaxy S21) */
+@media (max-width: 430px) {
+    .project-image-wrapper {
+        height: clamp(220px, 35vh, 280px);
+        max-height: 280px;
+    }
+
+    .project-content-wrapper {
+        padding: 1.25rem;
+    }
+
+    .project-title-swiper {
+        font-size: 1.35rem;
+    }
+
+    .project-description-swiper {
+        font-size: 0.9rem;
+        line-height: 1.5;
     }
 }
 
