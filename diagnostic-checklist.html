@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist de Diagnóstico Responsive</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+        .intro {
+            color: #666;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f0f4ff;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        .viewport-display {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #333;
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            z-index: 9999;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            min-width: 200px;
+        }
+        .viewport-display div {
+            margin: 5px 0;
+        }
+        .breakpoint-indicator {
+            display: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        .section {
+            margin: 40px 0;
+            padding: 30px;
+            background: #fafbfc;
+            border-radius: 15px;
+            border: 2px solid #e1e8ed;
+        }
+        .section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section h3 {
+            color: #667eea;
+            margin: 20px 0 10px 0;
+            font-size: 1.3rem;
+        }
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+        .checklist li {
+            padding: 15px;
+            margin: 10px 0;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #10b981;
+            transition: all 0.3s ease;
+        }
+        .checklist li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .checklist li strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        .code-box {
+            background: #1e293b;
+            color: #10b981;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            border: 2px solid #334155;
+        }
+        .warning {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        .error {
+            background: #fee;
+            border-left: 4px solid #ef4444;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        .success {
+            background: #d1fae5;
+            border-left: 4px solid #10b981;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Breakpoint indicators */
+        @media (max-width: 1023px) {
+            .bp-1023 {
+                display: inline-block;
+                background: #3b82f6;
+                color: white;
+            }
+        }
+        @media (max-width: 767px) {
+            .bp-767 {
+                display: inline-block;
+                background: #10b981;
+                color: white;
+            }
+        }
+        @media (max-width: 768px) {
+            .bp-768 {
+                display: inline-block;
+                background: #ef4444;
+                color: white;
+            }
+        }
+        @media (max-width: 480px) {
+            .bp-480 {
+                display: inline-block;
+                background: #8b5cf6;
+                color: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="viewport-display">
+        <div>📏 Viewport</div>
+        <div>Ancho: <span id="width"></span>px</div>
+        <div>Alto: <span id="height"></span>px</div>
+        <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #666;">
+            <div class="breakpoint-indicator bp-1023">≤1023px</div>
+            <div class="breakpoint-indicator bp-767">≤767px</div>
+            <div class="breakpoint-indicator bp-768">≤768px ⚠️</div>
+            <div class="breakpoint-indicator bp-480">≤480px</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>🔍 Guía de Diagnóstico Responsive</h1>
+        <div class="intro">
+            <strong>📋 Objetivo:</strong> Identificar exactamente qué elementos se rompen en cada breakpoint del portafolio.
+            <br><br>
+            <strong>🎯 Método:</strong> Seguir esta checklist mientras cambias el tamaño de la ventana del navegador.
+        </div>
+
+        <!-- PASO 1 -->
+        <div class="section">
+            <h2><span class="step-number">1</span> Abrir Chrome DevTools</h2>
+
+            <h3>🎮 Atajos de Teclado:</h3>
+            <div class="code-box">
+F12 = Abrir DevTools
+Ctrl + Shift + M = Toggle Device Toolbar (modo responsive)
+Ctrl + Shift + C = Inspector de elementos
+            </div>
+
+            <h3>📱 Configurar Vista Responsive:</h3>
+            <ul class="checklist">
+                <li>
+                    <strong>1. Presiona F12</strong>
+                    Se abrirá el panel de DevTools abajo o al lado
+                </li>
+                <li>
+                    <strong>2. Presiona Ctrl + Shift + M</strong>
+                    La vista cambiará a modo responsive con controles de tamaño
+                </li>
+                <li>
+                    <strong>3. En la barra superior, verás un dropdown</strong>
+                    Selecciona "Responsive" o un dispositivo específico (iPhone, iPad, etc.)
+                </li>
+            </ul>
+        </div>
+
+        <!-- PASO 2 -->
+        <div class="section">
+            <h2><span class="step-number">2</span> Tamaños Críticos a Probar</h2>
+
+            <div class="warning">
+                <strong>⚠️ IMPORTANTE:</strong> Anota qué elementos se ven mal en CADA uno de estos tamaños.
+            </div>
+
+            <ul class="checklist">
+                <li>
+                    <strong>1920px (Desktop Full HD)</strong>
+                    Todo debe verse perfecto aquí. Esta es tu referencia.
+                </li>
+                <li>
+                    <strong>1024px (Tablet Horizontal)</strong>
+                    Debe activar: @media (max-width: 1023px)
+                    <br>¿Qué revisar? Navbar, Hero stats, About cards
+                </li>
+                <li>
+                    <strong>769px (Justo SOBRE el conflicto)</strong>
+                    NO debe activar ningún media query de mobile
+                    <br>¿Qué revisar? Transición de tablet a mobile
+                </li>
+                <li>
+                    <strong>768px (CONFLICTO #1) ⚠️</strong>
+                    Debe activar: @media (max-width: 768px)
+                    <br>¿Qué revisar? Project image wrapper
+                </li>
+                <li>
+                    <strong>767px (CONFLICTO #2) ⚠️</strong>
+                    Debe activar: @media (max-width: 767px)
+                    <br>¿Qué revisar? Hero section, navbar, contact
+                </li>
+                <li>
+                    <strong>480px (Mobile Medium)</strong>
+                    Debe activar: @media (max-width: 480px)
+                    <br>¿Qué revisar? Hero stats, project cards
+                </li>
+                <li>
+                    <strong>375px (iPhone común)</strong>
+                    Todos los media queries activos
+                    <br>¿Qué revisar? Texto overflow, botones pequeños
+                </li>
+            </ul>
+        </div>
+
+        <!-- PASO 3 -->
+        <div class="section">
+            <h2><span class="step-number">3</span> Ver Qué Media Queries Están Activos</h2>
+
+            <h3>🔎 Método DevTools:</h3>
+            <div class="code-box">
+1. Abre index.html en Chrome
+2. Presiona F12
+3. Ve a la pestaña "Elements"
+4. En el panel derecho, ve a "Styles"
+5. Haz scroll y busca las secciones que digan:
+
+   @media (max-width: 768px)
+   @media (max-width: 767px)
+
+6. Los media queries ACTIVOS aparecen en NEGRO
+7. Los media queries INACTIVOS aparecen en GRIS tachado
+            </div>
+
+            <div class="success">
+                <strong>✅ TIP PRO:</strong> Si un media query está activo, su fondo estará destacado.
+            </div>
+        </div>
+
+        <!-- PASO 4 -->
+        <div class="section">
+            <h2><span class="step-number">4</span> Elementos a Revisar POR SECCIÓN</h2>
+
+            <h3>🎯 HERO SECTION (#hero)</h3>
+            <ul class="checklist">
+                <li>
+                    <strong>Hero Heading (.hero-heading)</strong>
+                    ¿Se trunca? ¿Tamaño de fuente correcto?
+                </li>
+                <li>
+                    <strong>Hero Stats (.hero-stats)</strong>
+                    ¿Se apilan verticalmente en mobile? ¿Se ven los 3 cards?
+                </li>
+                <li>
+                    <strong>Hero Image (.image-wrapper)</strong>
+                    ¿Desaparece en mobile? ¿Tamaño apropiado?
+                </li>
+                <li>
+                    <strong>CTAs (.hero-ctas)</strong>
+                    ¿Botones se apilan? ¿Centrado correcto?
+                </li>
+            </ul>
+
+            <h3>📊 PROJECTS SECTION (#projects)</h3>
+            <ul class="checklist">
+                <li>
+                    <strong>Project Image Wrapper (.project-image-wrapper)</strong>
+                    Altura en 768px vs 767px - ¿Cambia? ¿Cuál se ve mejor?
+                </li>
+                <li>
+                    <strong>Swiper Navigation (botones)</strong>
+                    ¿Son clickeables en mobile? ¿Tamaño adecuado?
+                </li>
+                <li>
+                    <strong>Project Metrics Grid (.project-metrics-grid)</strong>
+                    ¿Se apila en mobile? ¿Legible?
+                </li>
+            </ul>
+
+            <h3>💼 ABOUT SECTION (#about)</h3>
+            <ul class="checklist">
+                <li>
+                    <strong>About Cards (.metric-card)</strong>
+                    ¿Se apilan correctamente en mobile?
+                </li>
+                <li>
+                    <strong>Tech Stack (.tech-stack)</strong>
+                    ¿Badges se ven bien? ¿No hay overflow?
+                </li>
+            </ul>
+
+            <h3>📧 CONTACT SECTION (#contact)</h3>
+            <ul class="checklist">
+                <li>
+                    <strong>Contact Form (.contact-form-wrapper)</strong>
+                    ¿Inputs tienen ancho correcto? ¿Padding adecuado?
+                </li>
+                <li>
+                    <strong>Contact Links (.contact-link)</strong>
+                    ¿Se ven centrados? ¿Iconos legibles?
+                </li>
+            </ul>
+
+            <h3>🧭 NAVBAR (.navbar)</h3>
+            <ul class="checklist">
+                <li>
+                    <strong>Mobile Menu</strong>
+                    ¿Hamburger menu funciona? ¿Links se apilan?
+                </li>
+                <li>
+                    <strong>Logo (.logo-icon)</strong>
+                    ¿Tamaño correcto en mobile?
+                </li>
+                <li>
+                    <strong>Theme/Language Switchers</strong>
+                    ¿Posición correcta? ¿No se sobreponen?
+                </li>
+            </ul>
+        </div>
+
+        <!-- PASO 5 -->
+        <div class="section">
+            <h2><span class="step-number">5</span> Comparación 768px vs 767px</h2>
+
+            <div class="error">
+                <strong>🔴 EL PROBLEMA CRÍTICO:</strong>
+                <br><br>
+                En css/style.css:
+                <br>• Línea 1566: @media (max-width: 767px) { ... }
+                <br>• Línea 1642: @media (max-width: 768px) { ... }
+                <br><br>
+                El de 768px viene DESPUÉS, entonces sobrescribe al de 767px.
+            </div>
+
+            <h3>🧪 Experimento:</h3>
+            <div class="code-box">
+PASO A PASO:
+
+1. Pon el viewport en 769px
+   → Anota cómo se ve el #projects
+
+2. Pon el viewport en 768px
+   → Anota qué cambió en #projects
+   → Mira en DevTools: ¿@media (max-width: 768px) está activo?
+
+3. Pon el viewport en 767px
+   → Anota qué cambió
+   → Mira en DevTools: ¿ambos media queries están activos?
+
+4. Identifica cuál está "ganando" (aparece más abajo en Styles)
+            </div>
+
+            <div class="warning">
+                <strong>⚠️ QUÉ BUSCAR:</strong>
+                <br>• .project-image-wrapper { height: 350px } en 768px
+                <br>• Este estilo puede estar sobrescribiendo otros
+            </div>
+        </div>
+
+        <!-- PASO 6 -->
+        <div class="section">
+            <h2><span class="step-number">6</span> Documentar los Problemas</h2>
+
+            <h3>📝 Template de Reporte:</h3>
+            <div class="code-box">
+Para cada breakpoint problemático, anota:
+
+BREAKPOINT: [ej: 768px]
+ELEMENTO: [ej: .project-image-wrapper]
+PROBLEMA: [ej: altura muy pequeña, texto overflow]
+MEDIA QUERY ACTIVO: [ej: @media (max-width: 768px)]
+LÍNEA EN CSS: [ej: línea 1642]
+SOLUCIÓN PROPUESTA: [ej: mover este media query antes de 767px]
+            </div>
+
+            <div class="success">
+                <strong>✅ Una vez tengas esta info, sabremos exactamente qué arreglar!</strong>
+            </div>
+        </div>
+
+        <!-- PASO 7 -->
+        <div class="section">
+            <h2><span class="step-number">7</span> Bonus: Testing en Dispositivos Reales</h2>
+
+            <h3>📱 Dispositivos Comunes:</h3>
+            <ul class="checklist">
+                <li>
+                    <strong>iPhone SE (375x667)</strong>
+                    Mobile pequeño - todo debe caber
+                </li>
+                <li>
+                    <strong>iPhone 12/13 (390x844)</strong>
+                    Mobile moderno estándar
+                </li>
+                <li>
+                    <strong>iPad (768x1024)</strong>
+                    ⚠️ Justo en el conflicto!
+                </li>
+                <li>
+                    <strong>iPad Pro (1024x1366)</strong>
+                    Tablet grande - casi desktop
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        function updateViewport() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            document.getElementById('width').textContent = width;
+            document.getElementById('height').textContent = height;
+        }
+
+        updateViewport();
+        window.addEventListener('resize', updateViewport);
+    </script>
+</body>
+</html>
