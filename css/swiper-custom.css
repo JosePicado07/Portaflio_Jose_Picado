@@ -292,70 +292,45 @@
     opacity: 1;
 }
 
-/* ========== RESPONSIVE DESIGN - COMPREHENSIVE BREAKPOINTS ========== */
+/* ========== RESPONSIVE DESIGN ========== */
 
-/* Desktop 1920px (1080p Full HD) */
-@media (min-width: 1920px) {
+/* Tablet */
+@media (max-width: 1023px) {
     .project-image-wrapper {
-        height: 550px;
-        max-height: 550px;
-    }
-}
-
-/* Large Desktop/Laptop 1440px */
-@media (min-width: 1440px) and (max-width: 1919px) {
-    .project-image-wrapper {
-        height: 500px;
-        max-height: 500px;
-    }
-}
-
-/* Tablet Landscape & Small Laptops */
-@media (min-width: 1024px) and (max-width: 1439px) {
-    .project-image-wrapper {
-        height: 450px;
-        max-height: 450px;
-    }
-}
-
-/* Tablet Portrait (iPad, 768-1023px) */
-@media (min-width: 768px) and (max-width: 1023px) {
-    .project-image-wrapper {
-        height: 380px;
-        max-height: 380px;
+        min-height: 400px;
     }
 
     .project-content-wrapper {
-        padding: 1.75rem;
+        padding: 2rem;
     }
 
     .project-title-swiper {
-        font-size: 1.65rem;
+        font-size: 1.75rem;
     }
 
     .project-description-swiper {
-        font-size: 0.98rem;
-        line-height: 1.65;
+        font-size: 1rem;
     }
 
     .project-number-badge {
-        width: 55px;
-        height: 55px;
-        font-size: 1.4rem;
-        top: 18px;
-        left: 18px;
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+        top: 20px;
+        left: 20px;
     }
 }
 
-/* Mobile Large (iPhone 14 Pro Max, 430px+) */
-@media (min-width: 431px) and (max-width: 767px) {
+/* Mobile */
+@media (max-width: 767px) {
     .projectsSwiper {
         padding: 40px 10px !important;
     }
 
     .project-image-wrapper {
-        height: 300px;
-        max-height: 300px;
+        height: clamp(250px, 40vh, 350px); /* Responsive height based on viewport */
+        max-height: 350px;
+        min-height: unset;
     }
 
     .project-content-wrapper {
@@ -363,14 +338,14 @@
     }
 
     .project-title-swiper {
-        font-size: 1.45rem;
+        font-size: 1.5rem;
         margin-bottom: 1rem;
     }
 
     .project-description-swiper {
-        font-size: 0.93rem;
+        font-size: 0.95rem;
         margin-bottom: 1.5rem;
-        line-height: 1.55;
+        line-height: 1.6; /* Tighter line-height for mobile */
     }
 
     .project-tech-stack {
@@ -384,16 +359,16 @@
     }
 
     .project-metrics-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         gap: 1rem;
     }
 
     .metric-value-lg {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
 
     .metric-box {
-        padding: 1rem;
+        padding: 1rem; /* Reduced padding for mobile */
     }
 
     .project-number-badge {
@@ -416,36 +391,11 @@
     }
 }
 
-/* Mobile Medium (iPhone 12/13 Pro, 390-430px) */
-@media (min-width: 391px) and (max-width: 430px) {
+/* Extra small mobile (iPhone SE, Samsung Galaxy S21) */
+@media (max-width: 430px) {
     .project-image-wrapper {
-        height: 280px;
+        height: clamp(220px, 35vh, 280px);
         max-height: 280px;
-    }
-
-    .project-content-wrapper {
-        padding: 1.35rem;
-    }
-
-    .project-title-swiper {
-        font-size: 1.38rem;
-    }
-
-    .project-description-swiper {
-        font-size: 0.91rem;
-        line-height: 1.52;
-    }
-
-    .metric-value-lg {
-        font-size: 1.75rem;
-    }
-}
-
-/* Mobile Standard (iPhone SE, 375-390px) */
-@media (min-width: 376px) and (max-width: 390px) {
-    .project-image-wrapper {
-        height: 265px;
-        max-height: 265px;
     }
 
     .project-content-wrapper {
@@ -453,119 +403,12 @@
     }
 
     .project-title-swiper {
-        font-size: 1.32rem;
+        font-size: 1.35rem;
     }
 
     .project-description-swiper {
-        font-size: 0.89rem;
+        font-size: 0.9rem;
         line-height: 1.5;
-    }
-
-    .project-metrics-grid {
-        grid-template-columns: 1fr;
-        gap: 0.9rem;
-    }
-
-    .metric-value-lg {
-        font-size: 1.7rem;
-    }
-}
-
-/* Mobile Small (Samsung Galaxy S21, 360-375px) */
-@media (min-width: 361px) and (max-width: 375px) {
-    .project-image-wrapper {
-        height: 250px;
-        max-height: 250px;
-    }
-
-    .project-content-wrapper {
-        padding: 1.2rem;
-    }
-
-    .project-title-swiper {
-        font-size: 1.28rem;
-    }
-
-    .project-description-swiper {
-        font-size: 0.87rem;
-        line-height: 1.48;
-    }
-
-    .tech-badge-swiper {
-        padding: 0.45rem 0.9rem;
-        font-size: 0.8rem;
-    }
-
-    .metric-value-lg {
-        font-size: 1.65rem;
-    }
-
-    .metric-box {
-        padding: 0.9rem;
-    }
-
-    .project-number-badge {
-        width: 45px;
-        height: 45px;
-        font-size: 1.1rem;
-        top: 12px;
-        left: 12px;
-    }
-}
-
-/* Mobile Extra Small (<=360px) */
-@media (max-width: 360px) {
-    .project-image-wrapper {
-        height: 235px;
-        max-height: 235px;
-    }
-
-    .project-content-wrapper {
-        padding: 1.1rem;
-    }
-
-    .project-title-swiper {
-        font-size: 1.25rem;
-    }
-
-    .project-description-swiper {
-        font-size: 0.85rem;
-        line-height: 1.45;
-        margin-bottom: 1.2rem;
-    }
-
-    .project-tech-stack {
-        gap: 0.4rem;
-        margin-bottom: 1.2rem;
-    }
-
-    .tech-badge-swiper {
-        padding: 0.4rem 0.85rem;
-        font-size: 0.78rem;
-    }
-
-    .project-metrics-grid {
-        grid-template-columns: 1fr;
-        gap: 0.85rem;
-    }
-
-    .metric-value-lg {
-        font-size: 1.6rem;
-    }
-
-    .metric-box {
-        padding: 0.85rem;
-    }
-
-    .swiper-button-next,
-    .swiper-button-prev {
-        width: 40px;
-        height: 40px;
-    }
-
-    .swiper-button-next:after,
-    .swiper-button-prev:after {
-        font-size: 1.1rem;
     }
 }
 
