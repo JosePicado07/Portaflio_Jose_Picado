@@ -26,6 +26,7 @@ $RECYCLE.BIN/
 *.code-workspace
 
 .claude/
+test-screenshots/
 
 # JetBrains IDEs
 .idea/

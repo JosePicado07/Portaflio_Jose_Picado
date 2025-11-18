@@ -4,9 +4,6 @@
    All interactive functionality
    ======================================== */
 
-// ========== GLOBAL VARIABLES ==========
-let lottieAnimation = null;
-
 // ========== INITIALIZATION ==========
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize theme on load
@@ -15,14 +12,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize AOS (Animate On Scroll) library
     initAOS();
 
+    // Setup skip link functionality
+    setupSkipLink();
+
     // Setup scroll-to-top button functionality
     setupScrollToTop();
 
     // Setup navbar scroll effect
     setupNavbarScroll();
-
-    // Initialize Lottie loader
-    initLottieLoader();
 
     // Setup contact form
     setupContactForm();
@@ -35,8 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize GSAP Animations
     initGSAPAnimations();
-
-    console.log('Portfolio initialized (DOMContentLoaded) ✓');
 });
 
 // ========== WINDOW LOAD INITIALIZATION ==========
@@ -53,7 +48,6 @@ window.addEventListener('load', function() {
     // Wait for animations to settle, then enable smooth scroll
     setTimeout(() => {
         setupSmoothScroll();
-        console.log('All resources loaded - Smooth scroll ready! 🚀');
     }, 1000); // 1000ms allows AOS animations (800ms) to complete
 });
 
@@ -72,8 +66,6 @@ function initAOS() {
             anchorPlacement: 'top-bottom', // Defines which position triggers animation
             startEvent: 'DOMContentLoaded' // Start calculating positions
         });
-
-        console.log('AOS animations initialized ✓');
     }
 }
 
@@ -91,63 +83,74 @@ function forceAnimateAllAOS() {
     allAosElements.forEach(el => {
         el.classList.add('aos-animate');
     });
-
-    console.log(`Forced ${allAosElements.length} AOS elements to animate ✓`);
 }
 
-// ========== LOTTIE LOADING ANIMATION ==========
+// ========== SKIP LINK (Accessibility) ==========
 /**
- * Initialize Lottie loading animation for contact form
+ * Setup skip link to jump to main content
+ * Properly handles fixed navbar offset
  */
-function initLottieLoader() {
-    const loaderContainer = document.getElementById('lottieLoader');
+function setupSkipLink() {
+    const skipLink = document.querySelector('.skip-link');
+    const navbar = document.querySelector('.navbar');
 
-    if (!loaderContainer) {
-        console.warn('Lottie loader container not found');
-        return;
-    }
+    if (!skipLink) return;
 
-    if (typeof lottie === 'undefined') {
-        console.warn('Lottie library not loaded');
-        return;
-    }
+    skipLink.addEventListener('click', function(e) {
+        e.preventDefault();
 
-    // Initialize Lottie animation
-    lottieAnimation = lottie.loadAnimation({
-        container: loaderContainer,
-        renderer: 'svg',
-        loop: true,
-        autoplay: false,
-        path: 'images/Trail loading.json'
+        // Get target from href attribute (e.g., #about)
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        if (!targetElement) return;
+
+        // Calculate navbar height
+        const navbarHeight = navbar ? navbar.offsetHeight : 80;
+
+        // Scroll to target with offset for fixed navbar
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+        const scrollPosition = targetPosition - navbarHeight - 20; // Extra 20px padding
+
+        window.scrollTo({
+            top: scrollPosition,
+            behavior: 'smooth'
+        });
+
+        // Set focus to target element for screen readers
+        targetElement.setAttribute('tabindex', '-1');
+        targetElement.focus();
+
+        // Remove tabindex after focus to prevent tab traps
+        setTimeout(() => {
+            targetElement.removeAttribute('tabindex');
+        }, 1000);
     });
-
-    console.log('Lottie loader initialized ✓');
 }
 
+// ========== CSS LOADING SPINNER (replaces Lottie) ==========
 /**
- * Show loading animation
+ * Show loading animation (CSS spinner)
  */
 function showLoader() {
     const loaderContainer = document.getElementById('lottieLoader');
     const submitBtn = document.querySelector('.btn-submit');
 
-    if (loaderContainer && lottieAnimation) {
+    if (loaderContainer) {
         loaderContainer.style.display = 'block';
-        lottieAnimation.play();
         if (submitBtn) submitBtn.style.display = 'none';
     }
 }
 
 /**
- * Hide loading animation
+ * Hide loading animation (CSS spinner)
  */
 function hideLoader() {
     const loaderContainer = document.getElementById('lottieLoader');
     const submitBtn = document.querySelector('.btn-submit');
 
-    if (loaderContainer && lottieAnimation) {
+    if (loaderContainer) {
         loaderContainer.style.display = 'none';
-        lottieAnimation.stop();
         if (submitBtn) submitBtn.style.display = 'block';
     }
 }
@@ -164,8 +167,6 @@ function initTheme() {
 
     document.documentElement.setAttribute('data-theme', theme);
     updateThemeIcon(theme);
-
-    console.log(`Theme initialized: ${theme} ✓`);
 }
 
 /**
@@ -252,8 +253,6 @@ function setupSmoothScroll() {
             }
         });
     });
-
-    console.log('Clean smooth scroll enabled ✓');
 }
 
 // ========== SCROLL TO TOP BUTTON ==========
@@ -264,14 +263,11 @@ function setupSmoothScroll() {
 function setupScrollToTop() {
     const scrollTopBtn = document.getElementById('scrollTopBtn');
 
-    if (!scrollTopBtn) {
-        console.warn('Scroll to top button not found');
-        return;
-    }
+    if (!scrollTopBtn) return;
 
     // Show/hide button based on scroll position
     window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
+        if (window.pageYOffset > 150) {
             scrollTopBtn.classList.add('show');
         } else {
             scrollTopBtn.classList.remove('show');
@@ -285,8 +281,6 @@ function setupScrollToTop() {
             behavior: 'smooth'
         });
     });
-
-    console.log('Scroll to top button setup complete ✓');
 }
 
 // ========== NAVBAR SCROLL EFFECT ==========
@@ -297,10 +291,7 @@ function setupScrollToTop() {
 function setupNavbarScroll() {
     const navbar = document.querySelector('.navbar');
 
-    if (!navbar) {
-        console.warn('Navbar not found');
-        return;
-    }
+    if (!navbar) return;
 
     window.addEventListener('scroll', function() {
         if (window.pageYOffset > 50) {
@@ -309,8 +300,6 @@ function setupNavbarScroll() {
             navbar.classList.remove('scrolled');
         }
     });
-
-    console.log('Navbar scroll effect setup complete ✓');
 }
 
 // ========== MOBILE MENU ==========
@@ -331,8 +320,6 @@ function setupMobileMenuClose() {
             }
         });
     });
-
-    console.log('Mobile menu close setup complete ✓');
 }
 
 // ========== CONTACT FORM ==========
@@ -344,10 +331,7 @@ function setupContactForm() {
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
 
-    if (!contactForm) {
-        console.warn('Contact form not found');
-        return;
-    }
+    if (!contactForm) return;
 
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -381,14 +365,7 @@ function setupContactForm() {
         // Initialize EmailJS
         emailjs.init(PUBLIC_KEY);
 
-        console.log('📧 Sending both emails...', {
-            service: SERVICE_ID,
-            templates: { contact: TEMPLATE_CONTACT, autoreply: TEMPLATE_AUTOREPLY },
-            formData: formData
-        });
-
         // Send BOTH emails: Contact notification + Auto-reply
-        // Test each email separately to identify which one is failing
 
         // Email 1: Send contact notification to José Picado
         emailjs.send(SERVICE_ID, TEMPLATE_CONTACT, {
@@ -397,7 +374,6 @@ function setupContactForm() {
             message: formData.message
         })
         .then(function(response) {
-            console.log('✅ Contact notification sent successfully!', response);
 
             // Email 2: Send auto-reply confirmation to the user
             // Variables must match template configuration exactly
@@ -408,16 +384,10 @@ function setupContactForm() {
             });
         })
         .then(function(response) {
-            console.log('✅ Auto-reply sent successfully!', response);
-            console.log('🎉 Both emails sent!');
             showFormStatus('success', getSuccessMessage());
             contactForm.reset();
         })
         .catch(function(error) {
-            console.error('❌ Email sending failed:', error);
-            console.error('📋 Error status:', error.status);
-            console.error('📋 Error text:', error.text);
-            console.error('📋 Full error:', error);
 
             // Show which template failed
             const errorMsg = error.status === 422
@@ -433,8 +403,6 @@ function setupContactForm() {
             hideLoader();
         });
     });
-
-    console.log('Contact form setup complete ✓');
 }
 
 /**
@@ -632,10 +600,7 @@ function throttle(func, limit) {
  * Initialize Swiper.js Projects Carousel
  */
 function initProjectsSwiper() {
-    if (typeof Swiper === 'undefined') {
-        console.warn('Swiper library not loaded');
-        return;
-    }
+    if (typeof Swiper === 'undefined') return;
 
     const projectsSwiper = new Swiper('.projectsSwiper', {
         // Swiper Parameters
@@ -684,7 +649,6 @@ function initProjectsSwiper() {
         // Events
         on: {
             init: function () {
-                console.log('Projects Swiper initialized ✓');
                 // DISABLED: updateProjectContent causes image/content mismatch
                 // updateProjectContent(this.realIndex);
             },
@@ -709,10 +673,7 @@ function initProjectsSwiper() {
  * Initialize GSAP Premium Animations
  */
 function initGSAPAnimations() {
-    if (typeof gsap === 'undefined') {
-        console.warn('GSAP library not loaded');
-        return;
-    }
+    if (typeof gsap === 'undefined') return;
 
     // Register ScrollTrigger plugin
     gsap.registerPlugin(ScrollTrigger);
@@ -813,17 +774,4 @@ function initGSAPAnimations() {
             });
         });
     }
-
-    console.log('GSAP animations initialized ✓');
 }
-
-// ========== CONSOLE BRANDING ==========
-/**
- * Display custom console message
- * (Fun easter egg for developers who inspect the site)
- */
-console.log('%c👋 Hey there, fellow developer!', 'color: #33af7f; font-size: 20px; font-weight: bold;');
-console.log('%cLike what you see? Let\'s connect!', 'color: #203c86; font-size: 14px;');
-console.log('%c📧 jpicado011@gmail.com', 'color: #4b77bb; font-size: 12px;');
-console.log('%c💼 linkedin.com/in/josé-andrés-picado-corrales-a10a28173', 'color: #4b77bb; font-size: 12px;');
-console.log('%c🐧 Precision in Process, Power in Performance', 'color: #33af7f; font-size: 12px; font-style: italic;');
