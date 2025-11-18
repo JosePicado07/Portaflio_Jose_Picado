@@ -3,14 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="José Picado - Data Engineer especializado en pipelines ETL, optimización de procesos y arquitectura de datos escalable">
-    <meta name="keywords" content="Data Engineer, ETL, Python, SQL, Apache Spark, Data Engineering, Costa Rica">
-    <meta name="author" content="José Andrés Picado Corrales">
 
-    <title>José Picado | Data Engineer</title>
+    <!-- Primary Meta Tags -->
+    <meta name="description" content="José Picado - Data Engineer especializado en pipelines ETL, optimización de procesos y arquitectura de datos escalable. 92% reducción latencia, 500K+ registros procesados.">
+    <meta name="keywords" content="Data Engineer, ETL, Python, SQL, Apache Spark, Data Engineering, Costa Rica, Pipeline, Big Data, Databricks">
+    <meta name="author" content="José Andrés Picado Corrales">
+    <title>José Picado | Data Engineer - ETL & Big Data Specialist</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://josepicado07.github.io/Portaflio_Jose_Picado/">
+    <meta property="og:title" content="José Picado | Data Engineer - ETL & Big Data Specialist">
+    <meta property="og:description" content="Data Engineer con experiencia en pipelines ETL y sistemas de datos en producción. 92% reducción latencia, 500K+ registros procesados.">
+    <meta property="og:image" content="https://josepicado07.github.io/Portaflio_Jose_Picado/images/logo.jpg">
+    <meta property="og:locale" content="es_CR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://josepicado07.github.io/Portaflio_Jose_Picado/">
+    <meta name="twitter:title" content="José Picado | Data Engineer">
+    <meta name="twitter:description" content="Data Engineer especializado en pipelines ETL, optimización de procesos y arquitectura de datos escalable">
+    <meta name="twitter:image" content="https://josepicado07.github.io/Portaflio_Jose_Picado/images/logo.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://josepicado07.github.io/Portaflio_Jose_Picado/">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
+    <!-- Performance Optimization: Preconnect to required origins -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 
     <!-- Bootstrap 5 CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -24,18 +52,48 @@
     <!-- Swiper.js - Modern Touch Slider -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Exo+2:wght@700&display=swap" rel="stylesheet">
+    <!-- Google Fonts with font-display swap for better performance -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Exo+2:wght@700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/swiper-custom.css">
+
+    <!-- Schema.org JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "José Andrés Picado Corrales",
+      "alternateName": "José Picado",
+      "url": "https://josepicado07.github.io/Portaflio_Jose_Picado/",
+      "image": "https://josepicado07.github.io/Portaflio_Jose_Picado/images/logo.jpg",
+      "jobTitle": "Data Engineer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "WWT Costa Rica"
+      },
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Universidad Cenfotec"
+      },
+      "knowsAbout": ["Data Engineering", "ETL Pipelines", "Python", "SQL", "Apache Spark", "Big Data", "Data Architecture"],
+      "email": "jpicado011@gmail.com",
+      "sameAs": [
+        "https://www.linkedin.com/in/josé-andrés-picado-corrales-a10a28173",
+        "https://github.com/josepicado07"
+      ]
+    }
+    </script>
 </head>
 <body>
 
+    <!-- Skip to main content link for accessibility -->
+    <a href="#about" class="skip-link">Skip to main content</a>
+
     <!-- ========== HEADER / NAVIGATION ========== -->
     <header id="header" class="header-navbar">
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" role="navigation" aria-label="Main navigation">
             <div class="container">
                 <!-- Logo -->
                 <a class="navbar-brand" href="#hero">
@@ -82,6 +140,9 @@
             </div>
         </nav>
     </header>
+
+    <!-- Main content -->
+    <main id="main" role="main">
 
     <!-- ========== SECTION 1: HERO ========== -->
     <section id="hero" class="hero-section">
@@ -594,7 +655,7 @@
                             <!-- Lottie Loading Animation -->
                             <div id="lottieLoader" style="display: none; width: 120px; height: 120px; margin: 20px auto;"></div>
 
-                            <div id="formStatus" class="form-status"></div>
+                            <div id="formStatus" class="form-status" role="status" aria-live="polite" aria-atomic="true"></div>
                         </form>
                     </div>
                 </div>
@@ -602,8 +663,11 @@
         </div>
     </section>
 
+    </main>
+    <!-- End of main content -->
+
     <!-- ========== FOOTER ========== -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <p class="footer-copyright">
@@ -627,12 +691,12 @@
     <!-- ========== FLOATING BUTTONS ========== -->
     <!-- WhatsApp Button -->
     <a href="https://wa.me/50684756191" target="_blank" class="btn-floating btn-whatsapp" aria-label="WhatsApp">
-        <i class="fab fa-whatsapp"></i>
+        <span class="btn-icon"><i class="fab fa-whatsapp"></i></span>
     </a>
 
     <!-- Scroll to Top Button -->
     <button id="scrollTopBtn" class="btn-floating btn-scroll-top" aria-label="Scroll to top">
-        <i class="fas fa-arrow-up"></i>
+        <span class="btn-icon"><i class="fas fa-arrow-up"></i></span>
     </button>
 
     <!-- ========== SCRIPTS ========== -->
@@ -652,11 +716,11 @@
     <!-- EmailJS -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
-    <!-- Lottie Player -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
-
     <!-- Custom JavaScript -->
     <script src="js/language.js"></script>
     <script src="js/main.js"></script>
+
+    <!-- Floating Buttons Fix - DEFINITIVE SOLUTION -->
+    <script src="js/floating-buttons-fix.js"></script>
 </body>
 </html>

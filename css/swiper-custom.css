@@ -67,6 +67,8 @@
     left: 0;
     right: 0;
     bottom: 0;
+    width: 100%; /* FIX: Ensure full width coverage */
+    height: 100%; /* FIX: Ensure full height coverage */
     background: linear-gradient(
         135deg,
         rgba(32, 60, 134, 0.3) 0%,
@@ -74,10 +76,17 @@
     );
     opacity: 0;
     transition: opacity 0.3s ease;
+    pointer-events: none; /* FIX: Allow hover to pass through to parent */
+    z-index: 2; /* FIX: Above image but below badge */
 }
 
 .project-slide-card:hover .project-image-overlay {
     opacity: 0.6;
+}
+
+/* FIX: Ensure hover works on entire card */
+.project-image-wrapper {
+    cursor: pointer;
 }
 
 /* ========== PROJECT NUMBER BADGE ========== */
@@ -114,12 +123,14 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    pointer-events: none; /* Fix: Allow hover events to pass through to image */
+    /* FIX REMOVED: pointer-events: none caused hover issues */
 }
 
-/* Re-enable pointer events for interactive elements */
+/* Ensure interactive elements work properly */
 .project-content-wrapper > * {
     pointer-events: auto;
+    position: relative;
+    z-index: 5; /* Ensure content is clickable */
 }
 
 /* ========== PROJECT STATUS BADGE ========== */
