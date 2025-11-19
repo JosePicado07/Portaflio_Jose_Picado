@@ -201,6 +201,53 @@
     transform: translateY(-2px);
 }
 
+/* ========== PROJECT ACTIONS (GitHub/Confidential Buttons) ========== */
+.project-actions {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.btn-project-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--gradient-accent);
+    color: white;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: var(--transition-smooth);
+    border: 2px solid transparent;
+}
+
+.btn-project-action:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+    color: white;
+}
+
+.btn-project-action i {
+    font-size: 1.1rem;
+}
+
+.btn-project-confidential {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, rgba(100, 116, 139, 0.1) 0%, rgba(71, 85, 105, 0.1) 100%);
+    color: var(--text-secondary);
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 2px solid rgba(100, 116, 139, 0.2);
+    cursor: default;
+}
+
 /* ========== PROJECT METRICS GRID ========== */
 .project-metrics-grid {
     display: grid;

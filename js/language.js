@@ -75,6 +75,10 @@ const translations = {
         'project4-value2': '3 capas',
         'project4-impact2': 'Arquitectura Medallion',
 
+        // Project Actions
+        'project-view-code': 'Ver Código',
+        'project-confidential': 'Proyecto Empresarial',
+
         // Skills Section
         'skills-title': 'Skills',
         'skills-cat1': 'Languages',
@@ -161,11 +165,15 @@ const translations = {
         // Project 4
         'project4-title': 'Databricks Medallion Architecture Project',
         'project4-desc': 'End-to-end ETL pipeline with medallion architecture (Bronze→Silver→Gold) processing 100K+ transactions. Implements PySpark, Delta Lake, and Great Expectations for data quality, with interactive Streamlit dashboard.',
-        'project4-status': 'Production (2024)',
+        'project4-status': 'Academic (2024)',
         'project4-value1': '100K+',
         'project4-impact1': 'Transactions processed',
         'project4-value2': '3 layers',
         'project4-impact2': 'Medallion Architecture',
+
+        // Project Actions
+        'project-view-code': 'View Code',
+        'project-confidential': 'Enterprise Project',
 
         // Skills Section
         'skills-title': 'Skills',
