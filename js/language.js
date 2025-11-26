@@ -18,9 +18,6 @@ const translations = {
         // Hero Section
         'hero-title': 'Data Engineer',
         'hero-tagline': 'Transformando procesos de 6 horas en 45 minutos mediante automatización inteligente y arquitectura escalable',
-        'hero-stat1': 'Reducción latencia',
-        'hero-stat2': 'Registros procesados',
-        'hero-stat3': 'Años experiencia',
         'hero-cta': 'Ver Proyectos',
         'hero-github': 'GitHub',
         'hero-downloadCV': 'Descargar CV',
@@ -114,9 +111,6 @@ const translations = {
         // Hero Section
         'hero-title': 'Data Engineer',
         'hero-tagline': 'Transforming 6-hour processes into 45 minutes through intelligent automation and scalable architecture',
-        'hero-stat1': 'Latency reduction',
-        'hero-stat2': 'Records processed',
-        'hero-stat3': 'Years experience',
         'hero-cta': 'View Projects',
         'hero-github': 'GitHub',
         'hero-downloadCV': 'Download CV',
