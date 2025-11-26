@@ -15,9 +15,9 @@ html {
     scroll-padding-top: 90px; /* Global scroll padding for anchor links */
 }
 
-/* FIX: Projects section needs extra offset due to tall Swiper (650px) */
+/* FIX: Projects section optimized offset for 1080p viewport */
 #projects {
-    scroll-margin-top: 120px; /* Extra offset to show section title above Swiper */
+    scroll-margin-top: 90px; /* Balanced offset to show section title without overflow */
 }
 
 /* ========== CSS VARIABLES - ULTRA MODERN DESIGN SYSTEM ========== */
@@ -220,7 +220,12 @@ img {
 }
 
 section {
-    padding: var(--space-3xl) 0;
+    padding: var(--space-2xl) 0; /* Optimized for 1080p viewport fit */
+}
+
+/* Projects section needs compact padding for 1080p viewport */
+#projects {
+    padding: var(--space-2xl) 0;
 }
 
 /* ========== MODERN NAVBAR WITH GLASSMORPHISM ========== */
@@ -816,7 +821,7 @@ section {
 /* ========== SECTION HEADERS MODERN ========== */
 .section-header {
     text-align: center;
-    margin-bottom: var(--space-2xl);
+    margin-bottom: var(--space-xl); /* Reduced for better viewport fit */
 }
 
 .section-eyebrow {
@@ -1031,7 +1036,7 @@ section {
 .project-image-wrapper {
     position: relative;
     overflow: hidden;
-    height: 500px;
+    height: 450px; /* Optimized for 1080p viewport */
     display: flex;
     align-items: center;
     justify-content: center;

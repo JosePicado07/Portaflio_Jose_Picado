@@ -6,7 +6,7 @@
 /* ========== SWIPER CONTAINER ========== */
 .projectsSwiper {
     width: 100%;
-    padding: 60px 20px !important;
+    padding: 40px 20px !important; /* Reduced for 1080p viewport optimization */
     position: relative;
 }
 
@@ -34,12 +34,12 @@
 }
 
 /* ========== PROJECT IMAGE WRAPPER ========== */
-/* FIX: Balanced carousel height for optimal title visibility */
+/* FIX: Optimized carousel height for 1080p viewport without overflow */
 .project-image-wrapper {
     position: relative;
     overflow: hidden;
-    height: 500px;
-    max-height: 500px;
+    height: 450px; /* Reduced from 500px for better 1080p fit */
+    max-height: 450px;
 }
 
 .project-image-swiper {
