@@ -118,12 +118,20 @@
 
 /* ========== PROJECT CONTENT WRAPPER ========== */
 .project-content-wrapper {
-    padding: 2rem;
+    padding: 1.75rem 2rem; /* Reduced vertical padding for better content fit */
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; /* Default: center for mobile/tablet */
     /* FIX REMOVED: pointer-events: none caused hover issues */
+}
+
+/* Desktop only: prevent content cutoff on 1080p */
+@media (min-width: 1024px) {
+    .project-content-wrapper {
+        justify-content: flex-start; /* Prevent cutoff on desktop */
+        overflow-y: auto; /* Allow scrolling if needed on desktop */
+    }
 }
 
 /* Ensure interactive elements work properly */
@@ -142,9 +150,9 @@
     color: var(--color-white);
     padding: 0.5rem 1.5rem;
     border-radius: 25px;
-    font-size: 0.9rem;
+    font-size: 0.875rem; /* Slightly smaller */
     font-weight: 600;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem; /* Reduced margin */
     width: fit-content;
     box-shadow: 0 4px 12px rgba(51, 175, 127, 0.3);
 }
@@ -159,28 +167,28 @@
 
 /* ========== PROJECT TITLE ========== */
 .project-title-swiper {
-    font-size: 2rem;
+    font-size: 1.85rem; /* Slightly reduced for better spacing */
     font-weight: 700;
     color: var(--color-secondary);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem; /* Reduced margin for compactness */
     line-height: 1.2;
     font-family: var(--font-heading);
 }
 
 /* ========== PROJECT DESCRIPTION ========== */
 .project-description-swiper {
-    font-size: 1.1rem;
-    line-height: 1.8;
+    font-size: 1.05rem; /* Slightly smaller for better fit */
+    line-height: 1.65; /* Reduced line height for compactness */
     color: var(--color-text-light);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem; /* Reduced margin */
 }
 
 /* ========== PROJECT TECH STACK ========== */
 .project-tech-stack {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-bottom: 2rem;
+    gap: 0.65rem; /* Slightly reduced gap */
+    margin-bottom: 1.25rem; /* Reduced margin for compactness */
 }
 
 .tech-badge-swiper {
@@ -205,8 +213,8 @@
 .project-actions {
     display: flex;
     gap: 1rem;
-    margin-bottom: 1.5rem;
-    margin-top: 1.5rem;
+    margin-bottom: 1.25rem; /* Reduced for compactness */
+    margin-top: 0.5rem; /* Reduced top margin */
 }
 
 .btn-project-action {
